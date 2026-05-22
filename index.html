@@ -1,0 +1,788 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Fizikova-Csindra | Nyílt Forráskódú Kutatási Projektek</title>
+  <meta name="description" content="A Csindra Alapítvány nyílt forráskódú kutatási és oktatási projektjei különböző korosztályok számára." />
+
+  <style>
+    :root {
+      --bg: #071018;
+      --card: #0f1b2b;
+      --card-hover: #16263d;
+      --primary: #38bdf8;
+      --secondary: #22c55e;
+      --text: #e2e8f0;
+      --muted: #94a3b8;
+      --border: rgba(255,255,255,0.08);
+      --shadow: 0 10px 30px rgba(0,0,0,0.25);
+      --radius: 18px;
+      --max-width: 1240px;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+      background: linear-gradient(180deg, #04070d 0%, #071018 40%, #0b1320 100%);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    a {
+      text-decoration: none;
+      color: inherit;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    .container {
+      width: min(92%, var(--max-width));
+      margin: 0 auto;
+    }
+
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 1000;
+      backdrop-filter: blur(12px);
+      background: rgba(7,16,24,0.82);
+      border-bottom: 1px solid var(--border);
+    }
+
+    nav {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      padding: 1rem 0;
+    }
+
+    .logo {
+      display: flex;
+      align-items: center;
+      gap: 0.75rem;
+      font-weight: 700;
+      font-size: 1.15rem;
+    }
+
+    .logo-circle {
+      width: 42px;
+      height: 42px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: #071018;
+      font-weight: 900;
+      font-size: 1rem;
+      box-shadow: var(--shadow);
+    }
+
+    .nav-links {
+      display: flex;
+      gap: 1.5rem;
+      align-items: center;
+    }
+
+    .nav-links a {
+      color: var(--muted);
+      transition: 0.25s ease;
+      font-size: 0.95rem;
+    }
+
+    .nav-links a:hover {
+      color: var(--primary);
+    }
+
+    .hero {
+      position: relative;
+      overflow: hidden;
+      padding: 7rem 0 5rem;
+    }
+
+    .hero::before,
+    .hero::after {
+      content: "";
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.25;
+      z-index: -1;
+    }
+
+    .hero::before {
+      width: 360px;
+      height: 360px;
+      background: var(--primary);
+      top: -100px;
+      right: -80px;
+    }
+
+    .hero::after {
+      width: 320px;
+      height: 320px;
+      background: var(--secondary);
+      bottom: -80px;
+      left: -100px;
+    }
+
+    .hero-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 3rem;
+      align-items: center;
+    }
+
+    .hero h1 {
+      font-size: clamp(2.4rem, 5vw, 4.8rem);
+      line-height: 1.1;
+      margin-bottom: 1.5rem;
+    }
+
+    .hero p {
+      color: var(--muted);
+      font-size: 1.12rem;
+      margin-bottom: 2rem;
+      max-width: 700px;
+    }
+
+    .hero-badges {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+      margin-bottom: 2rem;
+    }
+
+    .badge {
+      background: rgba(56, 189, 248, 0.12);
+      border: 1px solid rgba(56, 189, 248, 0.3);
+      color: #c6f1ff;
+      padding: 0.55rem 1rem;
+      border-radius: 999px;
+      font-size: 0.9rem;
+    }
+
+    .hero-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1rem;
+    }
+
+    .btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.6rem;
+      padding: 0.95rem 1.6rem;
+      border-radius: 999px;
+      font-weight: 600;
+      transition: all 0.25s ease;
+      border: 1px solid transparent;
+    }
+
+    .btn-primary {
+      background: linear-gradient(135deg, var(--primary), #0ea5e9);
+      color: #03131d;
+      box-shadow: var(--shadow);
+    }
+
+    .btn-primary:hover {
+      transform: translateY(-2px);
+      filter: brightness(1.05);
+    }
+
+    .btn-secondary {
+      border-color: rgba(255,255,255,0.12);
+      background: rgba(255,255,255,0.04);
+      color: var(--text);
+    }
+
+    .btn-secondary:hover {
+      background: rgba(255,255,255,0.08);
+    }
+
+    .hero-card {
+      background: linear-gradient(180deg, rgba(255,255,255,0.04), rgba(255,255,255,0.02));
+      border: 1px solid var(--border);
+      border-radius: 28px;
+      padding: 2rem;
+      box-shadow: var(--shadow);
+    }
+
+    .hero-card h3 {
+      margin-bottom: 1.2rem;
+      font-size: 1.4rem;
+    }
+
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 1rem;
+    }
+
+    .stat {
+      background: rgba(255,255,255,0.03);
+      border: 1px solid rgba(255,255,255,0.06);
+      border-radius: 18px;
+      padding: 1.2rem;
+    }
+
+    .stat strong {
+      display: block;
+      font-size: 1.8rem;
+      color: var(--primary);
+    }
+
+    section {
+      padding: 5rem 0;
+    }
+
+    .section-title {
+      margin-bottom: 1rem;
+      font-size: clamp(2rem, 4vw, 3rem);
+    }
+
+    .section-subtitle {
+      color: var(--muted);
+      max-width: 780px;
+      margin-bottom: 3rem;
+    }
+
+    .mission-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1.5rem;
+    }
+
+    .mission-card,
+    .repo-card {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.8rem;
+      transition: all 0.3s ease;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .mission-card:hover,
+    .repo-card:hover {
+      transform: translateY(-6px);
+      background: var(--card-hover);
+      border-color: rgba(56, 189, 248, 0.35);
+    }
+
+    .mission-card::before,
+    .repo-card::before {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(56,189,248,0.08), transparent 55%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+
+    .mission-card:hover::before,
+    .repo-card:hover::before {
+      opacity: 1;
+    }
+
+    .mission-icon {
+      font-size: 2rem;
+      margin-bottom: 1rem;
+    }
+
+    .mission-card h3,
+    .repo-card h3 {
+      margin-bottom: 1rem;
+      font-size: 1.25rem;
+    }
+
+    .mission-card p,
+    .repo-card p {
+      color: var(--muted);
+      font-size: 0.98rem;
+    }
+
+    .repos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+      gap: 1.8rem;
+    }
+
+    .repo-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      margin-bottom: 1rem;
+    }
+
+    .repo-tag {
+      padding: 0.45rem 0.8rem;
+      border-radius: 999px;
+      font-size: 0.82rem;
+      font-weight: 600;
+    }
+
+    .tag-young {
+      background: rgba(34,197,94,0.14);
+      color: #b9f7c7;
+      border: 1px solid rgba(34,197,94,0.28);
+    }
+
+    .tag-middle {
+      background: rgba(251,191,36,0.14);
+      color: #fde68a;
+      border: 1px solid rgba(251,191,36,0.28);
+    }
+
+    .tag-senior {
+      background: rgba(168,85,247,0.14);
+      color: #e9d5ff;
+      border: 1px solid rgba(168,85,247,0.28);
+    }
+
+    .repo-links {
+      margin-top: 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.8rem;
+    }
+
+    .repo-links a {
+      padding: 0.75rem 1rem;
+      border-radius: 12px;
+      background: rgba(255,255,255,0.04);
+      border: 1px solid rgba(255,255,255,0.08);
+      font-size: 0.92rem;
+      transition: all 0.25s ease;
+    }
+
+    .repo-links a:hover {
+      background: rgba(56,189,248,0.12);
+      border-color: rgba(56,189,248,0.35);
+    }
+
+    .timeline {
+      display: grid;
+      gap: 1.4rem;
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 90px 1fr;
+      gap: 1.5rem;
+      align-items: start;
+    }
+
+    .timeline-year {
+      background: rgba(56,189,248,0.12);
+      border: 1px solid rgba(56,189,248,0.28);
+      color: #c6f1ff;
+      border-radius: 14px;
+      text-align: center;
+      padding: 0.85rem;
+      font-weight: 700;
+    }
+
+    .timeline-content {
+      background: var(--card);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 1.5rem;
+    }
+
+    .timeline-content p {
+      color: var(--muted);
+      margin-top: 0.6rem;
+    }
+
+    .cta {
+      text-align: center;
+      background: linear-gradient(180deg, rgba(56,189,248,0.08), rgba(34,197,94,0.05));
+      border: 1px solid rgba(255,255,255,0.08);
+      border-radius: 28px;
+      padding: 4rem 2rem;
+    }
+
+    .cta h2 {
+      font-size: clamp(2rem, 4vw, 3.2rem);
+      margin-bottom: 1rem;
+    }
+
+    .cta p {
+      max-width: 760px;
+      margin: 0 auto 2rem;
+      color: var(--muted);
+    }
+
+    footer {
+      padding: 2.5rem 0 3rem;
+      border-top: 1px solid var(--border);
+      text-align: center;
+      color: var(--muted);
+      font-size: 0.95rem;
+    }
+
+    .footer-links {
+      margin-top: 1rem;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+    }
+
+    .footer-links a:hover {
+      color: var(--primary);
+    }
+
+    @media (max-width: 768px) {
+      .nav-links {
+        display: none;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 5rem;
+      }
+
+      .stats {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <div class="container">
+      <nav>
+        <a class="logo" href="#top">
+          <div class="logo-circle">
+		   <img src="Cs_logo.gif" alt="FC"></div>
+          <span>Csindra Alapítvány GIT</span>
+        </a>
+
+        <div class="nav-links">
+          <a href="#kuldetes">Küldetés</a>
+          <a href="#projektek">Projektek</a>
+          <a href="#utvonal">Fejlesztési útvonal</a>
+          <a href="#kapcsolat">Kapcsolat</a>
+        </div>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+
+    <section class="hero" id="top">
+      <div class="container hero-grid">
+
+        <div>
+          <div class="hero-badges">
+            <span class="badge">Nyílt forráskód</span>
+            <span class="badge">Oktatás</span>
+            <span class="badge">Robotika</span>
+            <span class="badge">Kutatás</span>
+            <span class="badge">Űrkutatás</span>
+          </div>
+
+          <h1>A jövő kutatásai és oktatása minden korosztály számára</h1>
+
+          <p>
+            A Fizikova-Csindra GitHub profil a Csindra Alapítvány nyílt forráskódú projektjeinek központja.
+            A célunk olyan tudományos, oktatási és technológiai fejlesztések létrehozása,
+            amelyek támogatják a fiatal tehetségeket, az önálló tanulást,
+            a robotikai kutatásokat és az innovatív informatikai megoldásokat.
+          </p>
+
+          <div class="hero-buttons">
+            <a class="btn btn-primary" href="https://github.com/Fizikova-Csindra" target="_blank">
+              GitHub Profil Megnyitása
+            </a>
+
+            <a class="btn btn-secondary" href="https://web.csindra.hu" target="_blank">
+              Csindra Alapítvány
+            </a>
+          </div>
+        </div>
+
+        <div class="hero-card">
+          <h3>Projekt ökoszisztéma</h3>
+
+          <div class="stats">
+            <div class="stat">
+              <strong>3</strong>
+              <span>Nyílt projekt</span>
+            </div>
+
+            <div class="stat">
+              <strong>6-80</strong>
+              <span>Éves korosztály</span>
+            </div>
+
+            <div class="stat">
+              <strong>∞</strong>
+              <span>Tudományos lehetőség</span>
+            </div>
+
+            <div class="stat">
+              <strong>OSS</strong>
+              <span>Nyílt forráskód</span>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <section id="kuldetes">
+      <div class="container">
+
+        <h2 class="section-title">A Csindra Alapítvány küldetése</h2>
+
+        <p class="section-subtitle">
+          Az alapítvány célja az oktatás, a tudományos kutatás és a modern technológiai fejlesztések támogatása.
+          A projektek nyílt forráskódú formában készülnek, hogy a tudás mindenki számára elérhetővé váljon.
+        </p>
+
+        <div class="mission-grid">
+
+          <div class="mission-card">
+            <div class="mission-icon">📚</div>
+            <h3>Oktatás és képzés</h3>
+            <p>
+              Több nyelvű oktatási és képzési anyagok fejlesztése,
+              különböző korosztályok számára optimalizálva.
+            </p>
+          </div>
+
+          <div class="mission-card">
+            <div class="mission-icon">🤖</div>
+            <h3>Robotika és AI</h3>
+            <p>
+              Robotikai kutatások és intelligens rendszerek fejlesztésének támogatása.
+            </p>
+          </div>
+
+          <div class="mission-card">
+            <div class="mission-icon">🧬</div>
+            <h3>Egészségügyi kutatás</h3>
+            <p>
+              Informatikai és technológiai támogatás egészségügyi és orvosi kutatások számára.
+            </p>
+          </div>
+
+          <div class="mission-card">
+            <div class="mission-icon">🚀</div>
+            <h3>Űrkutatás</h3>
+            <p>
+              Innovatív tudományos projektek támogatása az űrkutatás és alkalmazott fizika területén.
+            </p>
+          </div>
+
+          <div class="mission-card">
+            <div class="mission-icon">💡</div>
+            <h3>Tehetséggondozás</h3>
+            <p>
+              Fiatal kutatók, fejlesztők és alkotók támogatása mentorálással és közösségi projektekkel.
+            </p>
+          </div>
+
+          <div class="mission-card">
+            <div class="mission-icon">🔬</div>
+            <h3>Kutatócsoportok</h3>
+            <p>
+              Saját kutatócsoportok létrehozása és támogatása nyílt együttműködési modellel.
+            </p>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="projektek">
+      <div class="container">
+
+        <h2 class="section-title">Nyílt forráskódú projektjeink</h2>
+
+        <p class="section-subtitle">
+          A három repository ugyanazt a tudományos és oktatási tartalmat különböző formában,
+          különböző korosztályok számára optimalizálva kínálja.
+        </p>
+
+        <div class="repos-grid">
+
+          <div class="repo-card">
+            <div class="repo-top">
+              <h3>MERI</h3>
+              <span class="repo-tag tag-young">6-22 év</span>
+            </div>
+
+            <p>
+              Interaktív, könnyen érthető és vizuális megközelítés fiatalok számára.
+              Oktatási anyagok, alapkutatások, kreatív technológiai projektek és digitális tanulási eszközök.
+            </p>
+
+            <div class="repo-links">
+              <a href="https://github.com/Fizikova-Csindra/MERI" target="_blank">
+                Repository megnyitása
+              </a>
+            </div>
+          </div>
+
+          <div class="repo-card">
+            <div class="repo-top">
+              <h3>CAD</h3>
+              <span class="repo-tag tag-middle">16-32 év</span>
+            </div>
+
+            <p>
+              Mérnöki, informatikai és kutatási fókuszú platform.
+              Fejlesztési dokumentációk, prototípusok, robotikai és kommunikációs technológiai projektek.
+            </p>
+
+            <div class="repo-links">
+              <a href="https://github.com/Fizikova-Csindra/CAD" target="_blank">
+                Repository megnyitása
+              </a>
+            </div>
+          </div>
+
+          <div class="repo-card">
+            <div class="repo-top">
+              <h3>CNC</h3>
+              <span class="repo-tag tag-senior">26-80 év</span>
+            </div>
+
+            <p>
+              Mélyebb szakmai tartalom kutatók, mérnökök és szakemberek számára.
+              Tudományos publikációk, kutatási eredmények és fejlett technológiai rendszerek.
+            </p>
+
+            <div class="repo-links">
+              <a href="https://github.com/Fizikova-Csindra/CNC" target="_blank">
+                Repository megnyitása
+              </a>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section id="utvonal">
+      <div class="container">
+
+        <h2 class="section-title">Fejlesztési útvonal</h2>
+
+        <p class="section-subtitle">
+          A projektek célja egy hosszú távon fenntartható, nyílt kutatási és oktatási ökoszisztéma létrehozása.
+        </p>
+
+        <div class="timeline">
+
+          <div class="timeline-item">
+            <div class="timeline-year">1.</div>
+            <div class="timeline-content">
+              <h3>Nyílt tudásbázis kiépítése</h3>
+              <p>
+                Oktatási és tudományos tartalmak strukturált publikálása GitHub repository-kban.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">2.</div>
+            <div class="timeline-content">
+              <h3>Kutatási közösségek létrehozása</h3>
+              <p>
+                Nemzetközi együttműködések és nyílt kutatási projektek támogatása.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">3.</div>
+            <div class="timeline-content">
+              <h3>Robotikai és AI fejlesztések</h3>
+              <p>
+                Hardveres és szoftveres innovációk létrehozása nyílt forráskódú modellek alapján.
+              </p>
+            </div>
+          </div>
+
+          <div class="timeline-item">
+            <div class="timeline-year">4.</div>
+            <div class="timeline-content">
+              <h3>Nemzetközi tudományos platform</h3>
+              <p>
+                A tudományos kutatások és fejlesztések globális elérhetővé tétele.
+              </p>
+            </div>
+          </div>
+
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <div class="container">
+        <div class="cta" id="kapcsolat">
+          <h2>Csatlakozz a nyílt kutatási közösséghez!</h2>
+
+          <p>
+            Fejlesztőként, kutatóként, oktatóként vagy támogatóként is részt vehetsz a projektek fejlődésében.
+            A Csindra Alapítvány célja egy együttműködésre épülő, jövőorientált tudományos közösség létrehozása.
+          </p>
+
+          <div class="hero-buttons" style="justify-content:center;">
+            <a class="btn btn-primary" href="https://github.com/Fizikova-Csindra" target="_blank">
+              GitHub Profil
+            </a>
+
+            <a class="btn btn-secondary" href="https://web.csindra.hu" target="_blank">
+              Alapítvány Honlapja
+            </a>
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>
+        © 2026 Csindra Alapítvány · Fizikova-Csindra Open Source Initiative
+      </p>
+
+      <div class="footer-links">
+        <a href="https://web.csindra.hu" target="_blank">Csindra Alapítvány</a>
+        <a href="https://github.com/Fizikova-Csindra" target="_blank">GitHub Profil</a>
+        <a href="https://github.com/Fizikova-Csindra/MERI" target="_blank">MERI</a>
+        <a href="https://github.com/Fizikova-Csindra/CAD" target="_blank">CAD</a>
+        <a href="https://github.com/Fizikova-Csindra/CNC" target="_blank">CNC</a>
+      </div>
+    </div>
+  </footer>
+
+</body>
+</html>
