@@ -1,0 +1,160 @@
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Fizikova-Csindra – a Csindra Alapítvány nyílt forráskódú közössége</title>
+<meta name="description" content="A Csindra Alapítvány hivatalos nyílt forráskódú projektjei, oktatási anyagai és kutatási fejlesztései.">
+<link rel="icon" href="Cs_logo.gif" type="image/gif">
+<style>
+:root{--ink:#17303d;--deep:#084c73;--blue:#115b82;--teal:#0f759a;--pale:#e8f3f8;--line:#b9d3df;--paper:#fff}
+*{box-sizing:border-box}
+html{scroll-padding-top:1rem}
+body{margin:0;background:#fff url(hatter2005.gif);color:var(--ink);font:17px/1.65 Georgia,"Times New Roman",serif}
+a{color:var(--blue)}a:hover{color:var(--deep)}
+a:focus-visible{outline:3px solid var(--teal);outline-offset:2px}
+.wrap{max-width:60rem;margin:0 auto;padding:1.5rem 1rem 3rem}
+header{display:flex;gap:1.5rem;align-items:center;background:var(--paper);border:2px solid var(--blue);border-radius:6px;padding:1.25rem 1.5rem}
+header img{width:140px;height:140px;flex:none}
+h1{margin:0 0 .5rem;font-size:1.7rem;line-height:1.25;color:var(--deep)}
+header p{margin:0}
+main{background:var(--paper);border:1px solid var(--line);border-radius:6px;margin-top:1.25rem;padding:.5rem 1.75rem 1.75rem}
+h2{font-size:1.35rem;color:var(--deep);border-bottom:2px solid var(--teal);padding-bottom:.3rem;margin:2rem 0 1rem}
+h3{font-size:1.1rem;margin:0 0 .3rem}
+ul.act{padding-left:1.2rem}ul.act li{margin:.35rem 0}
+.proj{display:grid;gap:1rem;grid-template-columns:repeat(auto-fit,minmax(15rem,1fr))}
+.proj article{border:1px solid var(--line);border-left:6px solid var(--teal);background:var(--pale);padding:.9rem 1.1rem}
+.proj p{margin:.25rem 0}
+.tw{overflow-x:auto}
+table{border-collapse:collapse;width:100%;min-width:34rem;font-size:.95rem}
+th,td{border:1px solid var(--line);padding:.45rem .7rem;text-align:center}
+thead th{background:var(--blue);color:#fff}
+tbody th{background:var(--pale);text-align:left;font-weight:600}
+tbody th b{color:var(--deep)}
+tr.sub th,tr.sub td{background:#d6e9f2;font-weight:700}
+.note{text-align:center;font-weight:700;font-style:italic;margin:1rem 0 0}
+ol{padding-left:1.4rem}ol li{margin:.4rem 0}
+<!-- footer{margin-top:1.25rem;text-align:center;font-size:.9rem;color:var(--ink);background:var(--paper);border:1px solid var(--line);border-radius:6px;padding:.8rem} -->
+footer {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 egyenlő részre osztja */
+  gap: 20px; /* Távolság az oszlopok között */
+  padding: 40px 20px;
+  background-color: #e8f3f8;
+  color: #000; -->
+}
+
+/* Mobilbarát verzió: ha a kijelző kicsi, egymás alá ugranak */
+@media (max-width: 768px) {
+  footer {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media(max-width:560px){header{flex-direction:column;text-align:center}main{padding:.25rem 1rem 1.25rem}}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <img src="Cs_logo.gif" alt="A Csindra Alapítvány animált logója" width="160" height="160">
+  <div>
+    <h1>Üdvözlünk a Fizikova-Csindra nyílt forráskódú GitHub közösségében!</h1>
+    <p>Ez a profil a <strong>Csindra Alapítvány</strong> hivatalos nyílt forráskódú projektjeinek, oktatási anyagainak és kutatási fejlesztéseinek ad otthont. Célunk a természettudományos, egészségügyi és műszaki tudományos kutatások, az űrkutatás, valamint a robotika és a digitalizáció elősegítése.</p>
+    <p>Az Alapítvány hivatalos weboldala: <a href="https://web.csindra.hu">web.csindra.hu</a></p>
+  </div>
+</header>
+
+<main>
+<h2>Az Alapítvány tevékenységei</h2>
+<p>Az alapító okiratunk szerint az alábbi területekre fókuszálunk:</p>
+<ul class="act">
+  <li><strong>Tananyagfejlesztés:</strong> oktatási és képzési anyagok kidolgozása, összehangolása 6–80 éves korosztály számára több nyelven.</li>
+  <li><strong>Tudományos munka:</strong> publikációk készítésének támogatása és nemzetközi terjesztése.</li>
+  <li><strong>Robotika és CNC:</strong> robotfejlesztések, robotika- és automatizálási kutatások támogatása.</li>
+  <li><strong>Informatika:</strong> informatikai és kommunikációs technikák modern fejlesztése.</li>
+  <li><strong>Egészségügy:</strong> orvosi és egészségügyi beavatkozásokat segítő kutatások támogatása.</li>
+  <li><strong>Űrkutatás:</strong> űrkutatással kapcsolatos tudományos projektek előmozdítása.</li>
+  <li><strong>Tehetséggondozás:</strong> tehetséges fiatalok felkutatása, segítése és mentorálása.</li>
+  <li><strong>Kutatócsoportok:</strong> saját kutatócsoportok létrehozása és folyamatos működtetése.</li>
+</ul>
+
+<h2>Nyílt forráskódú projektjeink korosztályok szerint</h2>
+<p>Tartalmilag összefüggő, de formátumában és módszertanában a különböző életkorokhoz igazított projektjeinket három fő repository-ban kezeljük:</p>
+<div class="proj">
+  <article>
+    <h3><a href="https://github.com/Fizikova-Csindra/MERI">MERI</a></h3>
+    <p><em>Magyar Egyetemek Robotika Iskolája</em></p>
+    <p><strong>Célkorosztály:</strong> 6–22 évesek</p>
+    <p><strong>Fókusz:</strong> alapozó oktatási és képzési anyagok fejlesztése, a fiatal generációk bevezetése a robotika és az informatika világába.</p>
+  </article>
+  <article>
+    <h3><a href="https://github.com/Fizikova-Csindra/CAD">CAD</a></h3>
+    <p><em>Computer Aided Design</em></p>
+    <p><strong>Célkorosztály:</strong> 16–32 évesek</p>
+    <p><strong>Fókusz:</strong> számítógépes tervezés, robotika és az MI (mesterséges intelligencia) összekapcsolása, tananyagfejlesztés egyetemi hallgatóknak Arduino és Raspberry Pi alapokon.</p>
+  </article>
+  <article>
+    <h3><a href="https://github.com/Fizikova-Csindra/CNC">CNC</a></h3>
+    <p><em>Computer Numerical Control</em></p>
+    <p><strong>Célkorosztály:</strong> 26–80 évesek</p>
+    <p><strong>Fókusz:</strong> robotgyártás, javítás, automatizálás kutatása. Felnőttképzés és ipari alkalmazások az űrkutatás és az orvostudomány támogatására.</p>
+  </article>
+</div>
+
+<h2>Nyílt forráskódú projektjeink témák szerint</h2>
+<div class="tw">
+<table>
+  <caption class="note" style="caption-side:bottom">A változtatás jogát az Alapítvány fenntartja</caption>
+  <thead>
+    <tr><th scope="col" style="text-align:right">Témakör [Azonosító]</th><th scope="col">Kezdő</th><th scope="col">Közép</th><th scope="col">Felső</th><th scope="col">Mester</th></tr>
+  </thead>
+  <tbody>
+    <tr class="sub"><th scope="row" style="text-align:right">Korosztály (év)</th><td>6–16</td><td>14–22</td><td>16–32</td><td>26–80</td></tr>
+    <tr class="sub"><th scope="row" style="text-align:right">neve, csoportja →</th><td>MERI</td><td>MERI</td><td>CAD</td><td>CNC</td></tr>
+    <tr><th scope="row">Fizika <b>[F]</b></th><td></td><td>F24</td><td></td><td></td></tr>
+    <tr><th scope="row">Kommunikáció (Híradás) <b>[H]</b></th><td></td><td></td><td><a href="H35/">H35</a></td><td></td></tr>
+    <tr><th scope="row">Matematika <b>[M]</b></th><td>M10</td><td>M21</td><td>M30</td><td>M40</td></tr>
+    <tr><th scope="row">Inteligenciák, AI/MI (Neuron) <b>[N]</b></th><td></td><td></td><td><a href="N38/">N38</a></td><td></td></tr>
+    <tr><th scope="row">Robotika <b>[R]</b></th><td>R11</td><td><a href="R23/">R23</a></td><td>R36</td><td>R46</td></tr>
+	<tr><th scope="row">Gen-X <b>[X]</b></th><td>X09</td><td><a href="X09/">X09</a></td><td>X09</td><td>X09</td></tr>
+  </tbody>
+</table>
+</div>
+
+<h2>Hogyan járulhatsz hozzá?</h2>
+<p>Közösségünk nyitott minden fejlesztő, oktató és kutató előtt. Az alábbi módokon segíthetsz:</p>
+<ol>
+  <li><strong>Hibajelentések és ötletek:</strong> nyiss egy „Issue”-t, ha hibát találsz vagy új ötleted van.</li>
+  <li><strong>Kód és dokumentáció:</strong> küldj be javításokat, egészítsd ki a meglévő tananyagokat (Pull Request).</li>
+  <li><strong>Tesztelés:</strong> teszteld a megírt kódokat és eljárásokat valós hardvereken.</li>
+  <li><strong>Támogatás:</strong> segíts más tagoknak a felmerülő problémák megoldásában.</li>
+</ol>
+<p>A legaktívabb közreműködőket nyilvános elismerésben, oklevélben és az Alapítvány értékrendje szerinti érmekkel (<strong>BATKA, TALENTUM, KARÁT</strong>) jutalmazzuk!</p>
+
+<h2>Biztonság és etika</h2>
+<p>Kérjük, hogy a közös munka során mindig tartsd be az Alapítvány adatvédelmi szabályzatát és etikai kódexét. A projektek részletes licencfeltételeit az adott repository-kban találod meg.</p>
+<p><a href="ADATVEDELEM.hu.html" target="_blank">ADATVEDELEM.hu</a></p>
+<p><a href="ETIKA.hu.html" target="_blank">ETIKA.hu</a></p>
+<p><a href="LICENCE.hu.html" target="_blank">LICENCE.hu</a></p>
+</main>
+
+<!--footer
+ <img src="QR.png" alt="Start" width="100" height="100">
+   Csindra Alapítvány V1.26.1 <br> <a href="https://web.csindra.hu">web.csindra.hu</a> <br> <a href="https://github.com/Fizikova-Csindra">GitHub: Fizikova-Csindra</a>
+</footer -->
+<footer>
+  <div class="footer-column">
+    <img src="QR.png" alt="Start" width="100" height="100">
+  </div>
+  <div class="footer-column">
+    <h3>Csindra Alapítvány</h3>
+    <p>V1.26.1<br><a href="https://web.csindra.hu">web.csindra.hu</a> <br> <a href="https://github.com/Fizikova-Csindra">GitHub: Fizikova-Csindra</a></p>
+  </div>
+  <div class="footer-column">
+    <img src="Barcode.png" alt="Start" width="200" height="50">
+  </div>
+</footer>
+</div>
+</body>
+</html>

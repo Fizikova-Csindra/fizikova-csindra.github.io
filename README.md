@@ -36,21 +36,7 @@ Tartalmilag összefüggő, de formátumában és módszertanában a különböz�
 * **Fókusz**: Robotgyártás, javítás, automatizálás kutatása. Felnőttképzés és ipari alkalmazások az űrkutatás és az orvostudomány támogatására.
 
 ---
-## 📚 Nyílt Forráskódú Projektjeink Témák Szerint
 
-|                      Témakör      [**Azonosító**] |  Kezdő   |     Közép      |     Felső      |  Mester   |
-| -------------------------------------------------:|:--------:|:--------------:|:--------------:|:---------:|
-|                               **Korosztály (év)** | **6-16** |   **14-22**    |   **16-32**    | **26-80** |
-| $\downarrow$ **neve,    csoportja** $\rightarrow$ | **MERI** |    **MERI**    |    **CAD**     |  **CNC**  |
-|                      Fizika               [**F**] |          |     [F24]      |                |           |
-|                      Kommunikáció(Híradás)[**H**] |          |                | [H35](../H35/) |           |
-|                      Matematika           [**M**] |  [M10]   |     [M21]      |     [M30]      |   [M40]   |
-|               Inteligenciák, AI/MI(Neuron)[**N**] |          |                | [N38](../N38/) |           |
-|                      Robotika             [**R**] |  [R11]   | [R23](../R23/) |     [R36]      |   [R46]   |
-|                                       Gen [**X**] |  [X09]   | [X09](../X09/) |     [X09]      |   [X09]   |
-**_A változtatás jogát az Alapítvány fenntartja_**
-
-________________
 ## ✨ Hogyan Járulhatsz Hozzá?
 
 Közösségünk nyitott minden fejlesztő, oktató és kutató előtt. Az alábbi módokon segíthetsz:
@@ -65,11 +51,3 @@ A legaktívabb közreműködőket nyilvános elismerésben, oklevélben és az A
 
 ## 🔒 Biztonság és Etika
 Kérjük, hogy a közös munka során mindig tartsd be az Alapítvány adatvédelmi szabályzatát és etikai kódexét. A projektek részletes licencfeltételeit az adott repository-kban találod meg.
-
-[[ADATVEDELEM.hu.html]]
-[[ETIKA.hu.html]]
-[[LICENCE.hu.html]]
-
-|                  |                                                                                                                                                      |                  |
-| :--------------: | :--------------------------------------------------------------------------------------------------------------------------------------------------: | ---------------- |
-| ![\|150](QR.png) | **Csindra Alapítvány**<br>V1.26.1  <br>[web.csindra.hu](https://web.csindra.hu)  <br>[GitHub: Fizikova-Csindra](https://github.com/Fizikova-Csindra) | ![[Barcode.png]] |
