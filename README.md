@@ -22,7 +22,6 @@ Az alapító okiratunk szerint az alábbi területekre fókuszálunk:
 # 📚 Nyílt Forráskódú Projektjeink
 
 [READMIKOR](./READMIKOR.md)
-
 ---
 [READTEMA](./READTEMA.md)
 ---
