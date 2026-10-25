@@ -24,8 +24,8 @@ Az alapító okiratunk szerint az alábbi területekre fókuszálunk:
 - [READMIKOR](./READMIKOR.md)
 
 ---
-![[READTEMA]]
-____
+[READTEMA](./READTEMA.md)
+---
 ## ✨ Hogyan Járulhatsz Hozzá?
 
 Közösségünk nyitott minden fejlesztő, oktató és kutató előtt. Az alábbi módokon segíthetsz:
